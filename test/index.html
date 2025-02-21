@@ -169,6 +169,26 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .diagram-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .diagram-container img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        
+        .diagram-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -192,6 +212,11 @@
                 <h2>Part 1: Introduction & Setup</h2>
                 <h3>1️⃣ What is Microsoft Intune?</h3>
                 <p>Microsoft Intune is a cloud-based endpoint management solution that helps organizations manage and secure devices, applications, and data. It integrates with <strong>Azure AD</strong> for identity-based security and policy enforcement.</p>
+                
+                <div class="diagram-container">
+                    <img src="./images/intune-architecture.svg" alt="Microsoft Intune Overview Architecture" />
+                    <p class="diagram-caption">Microsoft Intune Architecture Overview</p>
+                </div>
                 
                 <h3>2️⃣ Benefits of Microsoft Intune</h3>
                 <ul>
@@ -301,6 +326,11 @@
                     </tbody>
                 </table>
                 
+                <div class="diagram-container">
+                    <img src="./images/enrollment-flow.png" alt="Device Enrollment Flow" />
+                    <p class="diagram-caption">Device Enrollment Process Flow</p>
+                </div>
+                
                 <h3>2️⃣ Enrollment Methods</h3>
                 <h4>BYOD Enrollment (Self-Enrolled by User)</h4>
                 <ol>
@@ -352,6 +382,11 @@
                     </li>
                     <li>Assign policies to <strong>users/groups</strong></li>
                 </ol>
+                
+                <div class="diagram-container">
+                    <img src="./images/security-policies.png" alt="Security Policies Framework" />
+                    <p class="diagram-caption">Intune Security Policies Framework</p>
+                </div>
                 
                 <h4>🔹 Conditional Access</h4>
                 <ul>
@@ -437,6 +472,11 @@
             <section id="part4" class="scroll-animation">
                 <h2>Part 4: Advanced Intune Configurations & Best Practices</h2>
                 <h3>1️⃣ Windows Autopilot & Mac Device Management</h3>
+                
+                <div class="diagram-container">
+                    <img src="./images/autopilot-workflow.png" alt="Windows Autopilot Workflow" />
+                    <p class="diagram-caption">Windows Autopilot Deployment Workflow</p>
+                </div>
                 
                 <h4>🔹 Windows Autopilot Configuration (Zero-Touch Provisioning)</h4>
                 <ol>
