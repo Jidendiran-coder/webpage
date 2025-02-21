@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Intune Implementation Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Microsoft Intune Implementation Guide</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#azure-ad">Azure AD Integration</a></li>
+                <li><a href="#licensing">Licensing</a></li>
+                <li><a href="#setup">Setup</a></li>
+                <li><a href="#enrollment">Device Enrollment</a></li>
+                <li><a href="#security">Security & Compliance</a></li>
+                <li><a href="#advanced">Advanced Configurations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro" class="fade-in">
+            <h2>What is Microsoft Intune?</h2>
+            <p>Microsoft Intune is a cloud-based endpoint management solution that helps organizations manage and secure devices, applications, and data. It integrates with Azure AD for identity-based security and policy enforcement.</p>
+        </section>
+        
+        <section id="benefits" class="fade-in">
+            <h2>Benefits of Microsoft Intune</h2>
+            <ul>
+                <li>Cloud-Based: No need for on-prem infrastructure</li>
+                <li>Multi-Platform Support: Windows, macOS, iOS, Android</li>
+                <li>Security & Compliance: Supports ISO 27001 policies</li>
+                <li>Zero Trust Model: Ensures device compliance</li>
+                <li>Remote Management: Manage devices from anywhere</li>
+                <li>Flexible Enrollment: Supports both BYOD & corporate devices</li>
+            </ul>
+        </section>
+        
+        <section id="azure-ad" class="fade-in">
+            <h2>How Intune Works with Azure AD (Cloud-Only Model)</h2>
+            <p>Microsoft Intune operates within the Microsoft Endpoint Manager (MEM) framework and integrates with Azure AD for authentication and policy enforcement.</p>
+            <ul>
+                <li>Cloud-Only Deployment: No on-prem Active Directory required</li>
+                <li>User & Device Management: Assign policies based on user identity & device compliance</li>
+                <li>Conditional Access: Restricts access based on compliance status</li>
+            </ul>
+        </section>
+        
+        <section id="licensing" class="fade-in">
+            <h2>Licensing & Prerequisites</h2>
+            <h3>Licensing Requirements</h3>
+            <ul>
+                <li>Microsoft 365 E3 / E5</li>
+                <li>Enterprise Mobility + Security (EMS) E3 / E5</li>
+                <li>Microsoft 365 Business Premium</li>
+            </ul>
+            <h3>Device Requirements</h3>
+            <ul>
+                <li>Windows 10/11 (Pro, Enterprise, Education)</li>
+                <li>macOS 10.13+</li>
+                <li>iOS 13.0+</li>
+                <li>Android 8.0+ (Google Play Services enabled)</li>
+            </ul>
+        </section>
+        
+        <section id="setup" class="fade-in">
+            <h2>Step-by-Step Setup of Microsoft Intune</h2>
+            <ol>
+                <li>Sign in to Microsoft Endpoint Manager</li>
+                <li>Configure Basic Tenant Settings</li>
+                <li>Configure Role-Based Access Control (RBAC)</li>
+                <li>Set Up Device Enrollment Options</li>
+                <li>Define Compliance & Security Baselines</li>
+            </ol>
+        </section>
+        
+        <section id="enrollment" class="fade-in">
+            <h2>Device Enrollment & Management</h2>
+            <h3>BYOD vs Corporate-Owned Devices</h3>
+            <table>
+                <tr><th>Feature</th><th>BYOD</th><th>Corporate-Owned</th></tr>
+                <tr><td>Ownership</td><td>Employee</td><td>Company</td></tr>
+                <tr><td>Management Level</td><td>Limited</td><td>Full Control</td></tr>
+            </table>
+            <h3>Enrollment Methods</h3>
+            <p>BYOD Enrollment (Self-Enrolled by User) and Corporate-Owned Enrollment (IT-Managed).</p>
+        </section>
+        
+        <section id="security" class="fade-in">
+            <h2>Security & Policy Configuration</h2>
+            <h3>ISO 27001 Security Standards</h3>
+            <p>Intune helps enforce security standards through compliance policies, conditional access, and data protection.</p>
+        </section>
+        
+        <section id="advanced" class="fade-in">
+            <h2>Advanced Intune Configurations & Best Practices</h2>
+            <h3>Windows Autopilot & Mac Device Management</h3>
+            <p>Configuration and deployment best practices for zero-touch provisioning.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Microsoft Intune Guide | Designed for IT Professionals</p>
+    </footer>
+</body>
+</html>
