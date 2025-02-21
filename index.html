@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive Microsoft Intune Implementation Guide for IT professionals.">
     <title>Microsoft Intune Implementation Guide</title>
     <style>
         body {
@@ -25,17 +25,21 @@
         nav ul {
             list-style: none;
             padding: 0;
+            background: white;
+            text-align: center;
         }
         nav ul li {
             display: inline;
             margin: 0 10px;
         }
         nav ul li a {
-            color: white;
+            color: #0078D4;
             text-decoration: none;
+            font-weight: bold;
         }
         main {
             padding: 20px;
+            padding-bottom: 60px;
         }
         section {
             background: white;
@@ -88,7 +92,9 @@
             document.getElementById("search").addEventListener("input", function(e) {
                 const term = e.target.value.toLowerCase();
                 sections.forEach(section => {
-                    section.style.display = section.textContent.toLowerCase().includes(term) ? "block" : "none";
+                    section.style.visibility = section.textContent.toLowerCase().includes(term) ? "visible" : "hidden";
+                    section.style.opacity = section.textContent.toLowerCase().includes(term) ? "1" : "0";
+                    section.style.transition = "opacity 0.3s ease";
                 });
             });
         });
