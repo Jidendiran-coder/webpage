@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microsoft Intune Implementation Guide</title>
-    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,85 +13,88 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
         header {
-            background-color: #0078D4;
+            background: #0078D4;
             color: white;
-            padding: 15px 0;
+            padding: 15px;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 0;
-            text-align: center;
-            background: #005a9e;
         }
-
         nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 10px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
         }
-
         main {
             padding: 20px;
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
         }
-
         section {
-            margin-bottom: 30px;
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #0078D4;
-            color: white;
-        }
-
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition: opacity 0.5s, transform 0.5s;
         }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
         footer {
+            background: #0078D4;
+            color: white;
             text-align: center;
             padding: 10px;
-            background-color: #0078D4;
-            color: white;
-            margin-top: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #search {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const sections = document.querySelectorAll(".fade-in");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            document.getElementById("search").addEventListener("input", function(e) {
+                const term = e.target.value.toLowerCase();
+                sections.forEach(section => {
+                    section.style.display = section.textContent.toLowerCase().includes(term) ? "block" : "none";
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-
     <header>
         <h1>Microsoft Intune Implementation Guide</h1>
         <nav>
@@ -107,13 +110,12 @@
             </ul>
         </nav>
     </header>
-
     <main>
+        <input type="text" id="search" placeholder="🔍 Search...">
         <section id="intro" class="fade-in">
             <h2>What is Microsoft Intune?</h2>
             <p>Microsoft Intune is a cloud-based endpoint management solution that helps organizations manage and secure devices, applications, and data. It integrates with Azure AD for identity-based security and policy enforcement.</p>
         </section>
-        
         <section id="benefits" class="fade-in">
             <h2>Benefits of Microsoft Intune</h2>
             <ul>
@@ -125,81 +127,21 @@
                 <li>Flexible Enrollment: Supports both BYOD & corporate devices</li>
             </ul>
         </section>
-        
         <section id="azure-ad" class="fade-in">
             <h2>How Intune Works with Azure AD (Cloud-Only Model)</h2>
             <p>Microsoft Intune operates within the Microsoft Endpoint Manager (MEM) framework and integrates with Azure AD for authentication and policy enforcement.</p>
-            <ul>
-                <li>Cloud-Only Deployment: No on-prem Active Directory required</li>
-                <li>User & Device Management: Assign policies based on user identity & device compliance</li>
-                <li>Conditional Access: Restricts access based on compliance status</li>
-            </ul>
         </section>
-
         <section id="licensing" class="fade-in">
             <h2>Licensing & Prerequisites</h2>
-            <h3>Licensing Requirements</h3>
             <ul>
                 <li>Microsoft 365 E3 / E5</li>
                 <li>Enterprise Mobility + Security (EMS) E3 / E5</li>
                 <li>Microsoft 365 Business Premium</li>
             </ul>
         </section>
-
-        <section id="setup" class="fade-in">
-            <h2>Step-by-Step Setup of Microsoft Intune</h2>
-            <ol>
-                <li>Sign in to Microsoft Endpoint Manager</li>
-                <li>Configure Basic Tenant Settings</li>
-                <li>Configure Role-Based Access Control (RBAC)</li>
-                <li>Set Up Device Enrollment Options</li>
-                <li>Define Compliance & Security Baselines</li>
-            </ol>
-        </section>
-
-        <section id="enrollment" class="fade-in">
-            <h2>Device Enrollment & Management</h2>
-            <table>
-                <tr><th>Feature</th><th>BYOD</th><th>Corporate-Owned</th></tr>
-                <tr><td>Ownership</td><td>Employee</td><td>Company</td></tr>
-                <tr><td>Management Level</td><td>Limited</td><td>Full Control</td></tr>
-            </table>
-        </section>
-
-        <section id="security" class="fade-in">
-            <h2>Security & Policy Configuration</h2>
-            <p>Intune helps enforce security standards through compliance policies, conditional access, and data protection.</p>
-        </section>
-
-        <section id="advanced" class="fade-in">
-            <h2>Advanced Intune Configurations & Best Practices</h2>
-            <p>Configuration and deployment best practices for zero-touch provisioning.</p>
-        </section>
     </main>
-
     <footer>
         <p>&copy; 2025 Microsoft Intune Guide | Designed for IT Professionals</p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const sections = document.querySelectorAll(".fade-in");
-
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("visible");
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-
-            sections.forEach(section => observer.observe(section));
-        });
-    </script>
-
 </body>
 </html>
